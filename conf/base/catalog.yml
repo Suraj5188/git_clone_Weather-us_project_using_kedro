@@ -1,0 +1,72 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+weather_aus_raw:
+  type: pandas.CSVDataSet
+  filepath: H:\kedro_2\weather_us\weather-us\data\01_raw\weatherAUS.csv
+  layer: raw
+
+
+df1:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/df1.csv
+  layer: intermediate
+
+df1_treat_training_data:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/df1_treat_training_data.csv
+  layer: intermediate
+
+X_training:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/X_training.csv
+  layer: intermediate
+
+y_training:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/y_training.csv
+  layer: intermediate  
+
+df2:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/df2.csv
+  layer: intermediate  
+
+
+logreg: # simple example without compression
+  type: pickle.PickleDataSet
+  filepath: data/06_models/logreg.pickle
+  versioned: true
+  layer: models
+
+df_inf:
+   type: pandas.CSVDataSet
+   filepath : data\08_reporting\df_inference.csv
+   layer: reporting
+
+X_inf:
+   type: pandas.CSVDataSet
+   filepath: data\08_reporting\X_inference.csv
+   layer: reporting
+
+y_inf:
+   type: pandas.CSVDataSet
+   filepath: data\08_reporting\y_inference.csv
+   layer: reporting
+
+Xinf_treat_missing_value0:
+   type: pandas.CSVDataSet
+   filepath: data\08_reporting\Xinf_treat_missing_value.csv
+   layer: reporting
+
+Xinf_treat_missing_value0:
+   type: pandas.CSVDataSet
+   filepath: data\08_reporting\Xinf_treat_missing_values.csv
+   layer: reporting
+
+y_pred_inf:
+   type: pandas.CSVDataSet
+   filepath: data\08_reporting\data_y_pred_inf.csv
+   layer: reporting
